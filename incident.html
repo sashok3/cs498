@@ -49,12 +49,12 @@ x.domain([1990, 2013]);
 y.domain([0,2600000]);
 
 svg.append("path")
-  .data(data)
+  .data([data])
   .attr("class", "line")
   .attr("d", line1);
 
 svg.append("path")
-  .data(data)
+  .data([data])
   .attr("class", "line")
   .style("stroke", "red")
   .attr("d", line2);
