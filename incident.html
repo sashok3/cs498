@@ -22,11 +22,8 @@ var margin = {top: 20, right: 20, bottom: 20, left: 80},
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.scaleLinear().domain([1990, 2013]).range([0, width]);
-console.log(x);
 var y = d3.scaleLinear().domain([0,2600000]).range([height, 0]);
-console.log(y);
  
-
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
