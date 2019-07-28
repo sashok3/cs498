@@ -32,7 +32,6 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
 data = d3.csv("incident.csv");
-console.log(d.Year);
   
 var line1 = d3.line()
     .x(function(d) { return x(d.Year);})
@@ -40,21 +39,18 @@ var line1 = d3.line()
 
 var line2 = d3.line()
     .x(function(d) { return x(d.Year); })
-    .y(function(d) { return y(d.Incident_Cases_Americas); });
-  console.log(line2.x);
-
-
+    .y(function(d) { return y(d.Incident_Cases_Americas); }); 
 
 x.domain([1990, 2013]);
 y.domain([0,2600000]);
 
 svg.append("path")
-  .data([data])
+  .data(data)
   .attr("class", "line")
   .attr("d", line1);
 
 svg.append("path")
-  .data([data])
+  .data(data)
   .attr("class", "line")
   .style("stroke", "red")
   .attr("d", line2);
