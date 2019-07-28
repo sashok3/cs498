@@ -36,12 +36,12 @@ var svg = d3.select("body").append("svg")
 data = d3.csv("data.csv");
   
 var line1 = d3.line()
-    .x(function(d) { return x(+d.Year);})
-    .y(function(d) { return y(+d.Incident_Cases_Africa); });
+    .x(function(d) { return x(d.Year);})
+    .y(function(d) { return y(d.Incident_Cases_Africa); });
 
 var line2 = d3.line()
-    .x(function(d) { return x(+d.Year); })
-    .y(function(d) { return y(+d.Incident_Cases_Americas); });
+    .x(function(d) { return x(d.Year); })
+    .y(function(d) { return y(d.Incident_Cases_Americas); });
 
 svg.append("path")
   .attr("class", "line")
