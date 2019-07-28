@@ -32,26 +32,28 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
 data = d3.csv("incident.csv");
+ 
+var line1 = d3.line()
+    .x(function(d) { return x(+d.Year);})
+    console.log(d.Year);
+    .y(function(d) { return y(+d.Incident_Cases_Africa); });
+
+var line2 = d3.line()
+    .x(function(d) { return x(+d.Year); })
+    .y(function(d) { return y(+d.Incident_Cases_Americas); });
   
 x.domain([1990, 2013]);
 y.domain([0,2600000]);
 
 svg.append("path")
-  .data(data)
   .attr("class", "line")
-  .attr("d", d3.line()
-      .x(function(d) { return x(+d.Year);})
-      .y(function(d) { return y(+d.Incident_Cases_Africa); })
-);
+  .attr("d", line1(data));
 
 svg.append("path")
   .data(data)
   .attr("class", "line")
   .style("stroke", "red")
-  .attr("d", d3.line()
-      .x(function(d) { return x(+d.Year); })
-      .y(function(d) { return y(+d.Incident_Cases_Americas); })
-);
+  .attr("d", line2(data));
 
 svg.append("g")
   .attr("transfrom", "translate("+50+","+550+")")
