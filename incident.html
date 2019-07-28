@@ -157,8 +157,8 @@ d3.csv("incident.csv", function(error, data) {
 		.call(yAxis);
 	
 	svg.append("text")
-	        .attr("x", 40)
-	        .attr("y", 450)
+	        .attr("y", 0 - margin.left)
+                .attr("x",0 - (height / 2))
 	        .attr("transform", "rotate(-90)")
 	        .style("text-anchor", "middle")
 	        .style("font-size", "12px")
