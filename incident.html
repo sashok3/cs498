@@ -35,7 +35,6 @@ data = d3.csv("incident.csv");
  
 var line1 = d3.line()
     .x(function(d) { return x(+d.Year);})
-    console.log(d.Year);
     .y(function(d) { return y(+d.Incident_Cases_Africa); });
 
 var line2 = d3.line()
