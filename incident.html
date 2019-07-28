@@ -33,27 +33,25 @@ var svg = d3.select("body").append("svg")
 
 data = d3.csv("incident.csv");
   
-var line1 = d3.line()
-    .x(function(d) { return x(d.Year);})
-    .y(function(d) { return y(d.Incident_Cases_Africa); });
-
-var line2 = d3.line()
-    .x(function(d) { return x(d.Year); })
-    .y(function(d) { return y(d.Incident_Cases_Americas); }); 
-
 x.domain([1990, 2013]);
 y.domain([0,2600000]);
 
 svg.append("path")
   .data(data)
   .attr("class", "line")
-  .attr("d", line1);
+  .attr("d", d3.line()
+      .x(function(d) { return x(+d.Year);})
+      .y(function(d) { return y(+d.Incident_Cases_Africa); });
+);
 
 svg.append("path")
   .data(data)
   .attr("class", "line")
   .style("stroke", "red")
-  .attr("d", line2);
+  .attr("d", d3.line()
+      .x(function(d) { return x(+d.Year); })
+      .y(function(d) { return y(+d.Incident_Cases_Americas); });
+);
 
 svg.append("g")
   .attr("transfrom", "translate("+50+","+550+")")
