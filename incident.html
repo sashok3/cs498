@@ -23,7 +23,10 @@ var margin = {top: 20, right: 20, bottom: 20, left: 80},
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.scaleLinear().range([0, width]);
+console.log(x);
 var y = d3.scaleLinear().range([height, 0]);
+console.log(y);
+ 
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -34,12 +37,12 @@ var svg = d3.select("body").append("svg")
 data = d3.csv("data.csv");
   
 var line1 = d3.line()
-    .x(function(d) { return x(+d.date);})
-    .y(function(d) { return y(+d.close); });
+    .x(function(d) { return x(+d.Year);})
+    .y(function(d) { return y(+d.Incident_Cases_Africa); });
 
-//var line2 = d3.line()
-    //.x(function(d) { return x(+d.Year); })
-    //.y(function(d) { return y(+d.Incident_Cases_Americas); });
+var line2 = d3.line()
+    .x(function(d) { return x(+d.Year); })
+    .y(function(d) { return y(+d.Incident_Cases_Americas); });
   
 x.domain([1990, 2013]);
 y.domain([0,2600000]);
@@ -48,10 +51,10 @@ svg.append("path")
   .attr("class", "line")
   .attr("d", line1(data));
 
-//svg.append("path")
-  //.attr("class", "line")
-  //.style("stroke", "red")
-  //.attr("d", line2(data));
+svg.append("path")
+  .attr("class", "line")
+  .style("stroke", "red")
+  .attr("d", line2(data));
 
 svg.append("g")
   .attr("transfrom", "translate("+50+","+550+")")
