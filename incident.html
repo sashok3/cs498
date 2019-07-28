@@ -143,6 +143,11 @@ d3.csv("incident.csv", function(error, data) {
 	svg.append("g")		
 		.attr("class", "y axis")
 		.call(yAxis);
+	
+	svg.append("circle").attr("cx",480).attr("cy",150).attr("r", 6).style("fill", "red")
+        svg.append("circle").attr("cx",480).attr("cy",180).attr("r", 6).style("fill", "black")
+        svg.append("text").attr("x", 500).attr("y", 150).text("Europe").style("font-size", "15px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", 500).attr("y", 180).text("Western Pacific").style("font-size", "15px").attr("alignment-baseline","middle")
  
 });
  
