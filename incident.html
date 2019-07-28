@@ -18,7 +18,7 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <!--begin javascript code-->
 <script>
-var margin = {top: 50, right: 80, bottom: 30, left: 50},
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -40,6 +40,7 @@ var line2 = d3.line()
     .y(function(d) { return y(+d.Incident_Cases_Americas); });
 
 data = d3.csv("incident.csv");
+console.log(data);
 
 x.domain(d3.extent(data, function(d) { return +d.Year; }));
 y.domain([0,2600000]);
@@ -55,11 +56,11 @@ svg.append("path")
   .style("stroke", "red")
   .attr("d", line2);
 
-d3.select("svg").append("g")
+svg.append("g")
   .attr("transfrom", "translate("+50+","+550+")")
   .call(d3.axisBottom(x));
 
-d3.select("svg").append("g")
+svg.append("g")
   .attr("transfrom", "translate("+50+", "+50+")")
   .call(d3.axisLeft(y));
 
