@@ -32,13 +32,12 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
 var line1 = d3.line()
-    .x(function(d) { return x(+d.Year);})
-    console.log(d.Year);
-    .y(function(d) { return y(+d.Incident_Cases_Africa); });
+    .x(function(d) { return x(d.Year);})
+    .y(function(d) { return y(d.Incident_Cases_Africa); });
 
 var line2 = d3.line()
-    .x(function(d) { return x(+d.Year); })
-    .y(function(d) { return y(+d.Incident_Cases_Americas); });
+    .x(function(d) { return x(d.Year); })
+    .y(function(d) { return y(d.Incident_Cases_Americas); });
 
 data = d3.csv("incident.csv");
 console.log(data);
