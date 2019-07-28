@@ -5,7 +5,7 @@
 body { font: 12px Arial;}
  
 path { 
-  stroke: steelblue;
+  stroke: #4E79A7;
   stroke-width: 2;
   fill: none;
 }
@@ -154,7 +154,7 @@ d3.csv("incident.csv", function(error, data) {
 	svg.append("circle").attr("cx",720).attr("cy",70).attr("r", 4).style("fill", "orange")
 	svg.append("circle").attr("cx",720).attr("cy",90).attr("r", 4).style("fill", "pink")
 	svg.append("circle").attr("cx",720).attr("cy",110).attr("r", 4).style("fill", "green")
-	svg.append("circle").attr("cx",720).attr("cy",130).attr("r", 4).style("fill", "steelblue")
+	svg.append("circle").attr("cx",720).attr("cy",130).attr("r", 4).style("fill", "#4E79A7")
         svg.append("text").attr("x", 730).attr("y", 30).text("Europe").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 730).attr("y", 50).text("Western Pacific").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 730).attr("y", 70).text("South East Asia").style("font-size", "15px").attr("alignment-baseline","middle")
