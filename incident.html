@@ -62,7 +62,7 @@ svg.append("path")
 
 svg.append("g")
   .attr("transfrom", "translate(0,"+height+")")
-  .call(d3.axisBorrom(xs));
+  .call(d3.axisBottom(xs));
 
 svg.append("g")
   .call(d3.axisLeft(ys));
