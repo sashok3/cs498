@@ -19,24 +19,11 @@
 <!--begin javascript code-->
 <script>
 var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    padding = {top: 60, right: 60, bottom: 60, left: 60},
-    outerWidth = 960,
-    outerHeight = 500,
-    innerWidth = outerWidth - margin.left - margin.right,
-    innerHeight = outerHeight - margin.top - margin.bottom,
-    width = innerWidth - padding.left - padding.right,
-    height = innerHeight - padding.top - padding.bottom;
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 var x = d3.scaleLinear().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -57,26 +44,25 @@ data = d3.csv("incident.csv");
 x.domain(d3.extent(data, function(d) { return +d.Year; }));
 y.domain([0,2600000]);
 
-d3.select("svg").append("path")
+svg.append("path")
   .data(data)
   .attr("class", "line")
   .attr("d", line1);
 
-d3.select("svg").append("path")
+svg.append("path")
   .data(data)
   .attr("class", "line")
   .style("stroke", "red")
   .attr("d", line2);
 
 d3.select("svg").append("g")
-  .attr("class", "x axis")
-  .attr("transfrom", "translate(0,"+height+")")
-  .call(xAxis);
+  .attr("transfrom", "translate("+50+","+550+")")
+  .call(d3.axisBottom(x));
 
 d3.select("svg").append("g")
-  .attr("class", "y axis")
-  .attr("transfrom", "translate("+width+", 0)")
-  .call(yAxis);
+  .attr("transfrom", "translate("+50+", "+50+")")
+  .call(d3.axisLeft(y));
 
 </script>
 </body>
+
