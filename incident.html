@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <meta charset="utf-8">
 
 <!-- declare your styles here -->
@@ -24,18 +25,16 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-//var parseTime = d3.timeParse("%Y%m%d")
-
-var xs = d3.scaleTime().range([0, width])
-var ys = d3.scaleLinear().range([height, 0])
+var xs = d3.scaleTime().range([0, width]);
+var ys = d3.scaleLinear().range([height, 0]);
 
 var line1 = d3.line()
     .x(function(d) { return x(d.Year);})
-    .y(function(d) { return y(d.Incident_Cases_Africa);});
+    .y(function(d) { return y(d.Incident_Cases_Africa); });
 
 var line2 = d3.line()
-    .x(function(d) { return x(d.Year);})
-    .y(function(d) { return y(d.Incident_Cases_Americas);});
+    .x(function(d) { return x(d.Year); })
+    .y(function(d) { return y(d.Incident_Cases_Americas); });
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -43,7 +42,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate("+margin.left+", "+margin.top+")");
 
-d3.csv("data2.csv", function(error, data) {
+d3.csv("incident.csv", function(error, data) {
   if (error) throw error;
 
 x.domain(d3.extent(data, function(d) { return d.Year;}));
@@ -70,3 +69,7 @@ svg.append("g")
   .call(d3.axisLeft(ys));
 
 });
+
+</script>
+</body>
+</html>
