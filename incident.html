@@ -50,7 +50,7 @@ svg.append("path")
   .attr("d", line2(data));
 
 svg.append("g")
-  .attr("transfrom", "translate(0,"+height+")")
+  .attr("transfrom", "translate("+200+","+height+")")
   .call(d3.axisBottom(x));
 
 svg.append("g")
