@@ -91,11 +91,16 @@ d3.csv("incident.csv", function(error, data) {
 	data.forEach(function(d) {
 		d.Year = parseDate(d.Year);
 		d.Incident_Cases_Africa = +d.Incident_Cases_Africa;
+		d.Incident_Cases_Americas = +d.Incident_Cases_Americas;
+		d.Incident_Cases_WP = +d.Incident_Cases_WP;
+		d.Incident_Cases_SEA = +d.Incident_Cases_SEA;
+		d.Incident_Cases_EM = +d.Incident_Cases_EM;
+		d.Incident_Cases_Europe = +d.Incident_Cases_Europe;
 	});
  
 	// Scale the range of the data
 	x.domain(d3.extent(data, function(d) { return d.Year; }));
-	y.domain([0, d3.max(data, function(d) { return d.Incident_Cases_Africa; })]);
+	y.domain([0, d3.max(data, function(d) { return d.Incident_Cases_SEA; })]);
  
 	// Add the valueline path.
 	svg.append("path")	
