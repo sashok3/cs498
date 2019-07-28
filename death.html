@@ -5,8 +5,8 @@
 body { font: 12px Arial;}
 
 path {
-  stroke: steelblue;
-  stroke-width: 2;
+  stroke: #4E79A7;
+  stroke-width: 3;
   fill: none;
 }
 
@@ -18,21 +18,17 @@ path {
 	shape-rendering: crispEdges;
 }
 
-.legend rect {
-  fill:white;
-  stroke:black;
-  opacity:0.8;}
 
 </style>
 <body>
 
 <!-- load the d3.js library -->
 <script src="https://d3js.org/d3.v3.min.js"></script>
-<h2> Incident TB cases reported over the years (1990-2013) </h2>
+<h2> Death Count in regions reported over the years (1990-2013) </h2>
 <script>
 
 // Set the dimensions of the canvas / graph
-var	margin = {top: 30, right: 20, bottom: 30, left: 70},
+var	margin = {top: 30, right: 20, bottom: 50, left: 100},
 	width = 960 - margin.left - margin.right,
 	height = 500 - margin.top - margin.bottom;
 
@@ -110,31 +106,31 @@ d3.csv("death.csv", function(error, data) {
 	// Add the valueline2 path.
 	svg.append("path")
 		.attr("class", "line")
-	        .style("stroke", "green")
+	        .style("stroke", "#F28E2B")
 		.attr("d", valueline2(data));
 
 	// Add the valueline path.
 	svg.append("path")
 		.attr("class", "line")
-		.style("stroke", "red")
+		.style("stroke", "#76B7B2")
 		.attr("d", valueline3(data));
 
 	// Add the valueline2 path.
 	svg.append("path")
 		.attr("class", "line")
-	        .style("stroke", "orange")
+	        .style("stroke", "#59A14F")
 		.attr("d", valueline4(data));
 
 	// Add the valueline path.
 	svg.append("path")
 		.attr("class", "line")
-		.style("stroke", "pink")
+		.style("stroke", "#E15759")
 		.attr("d", valueline5(data));
 
 	// Add the valueline2 path.
 	svg.append("path")
 		.attr("class", "line")
-	        .style("stroke", "black")
+	        .style("stroke", "#EDC948")
 		.attr("d", valueline6(data));
 
 
@@ -144,17 +140,32 @@ d3.csv("death.csv", function(error, data) {
 		.attr("transform", "translate(0," + height + ")")
 		.call(xAxis);
 
+  svg.append("text")
+    .attr("x", 350)
+  	.attr("y", 460)
+    .style("text-anchor", "middle")
+  	.style("font-size", "16px")
+    .text("Year");
+
 	// Add the Y Axis
 	svg.append("g")
 		.attr("class", "y axis")
 		.call(yAxis);
 
-	svg.append("circle").attr("cx",720).attr("cy",30).attr("r", 4).style("fill", "red")
-        svg.append("circle").attr("cx",720).attr("cy",50).attr("r", 4).style("fill", "black")
-	svg.append("circle").attr("cx",720).attr("cy",70).attr("r", 4).style("fill", "orange")
-	svg.append("circle").attr("cx",720).attr("cy",90).attr("r", 4).style("fill", "pink")
-	svg.append("circle").attr("cx",720).attr("cy",110).attr("r", 4).style("fill", "green")
-	svg.append("circle").attr("cx",720).attr("cy",130).attr("r", 4).style("fill", "steelblue")
+  svg.append("text")
+  	.attr("y", -80)
+    .attr("x", -200)
+  	.attr("transform", "rotate(-90)")
+  	.style("text-anchor", "middle")
+  	.style("font-size", "12px")
+  	.text("Death Count");
+
+	svg.append("circle").attr("cx",720).attr("cy",30).attr("r", 6).style("fill", "#76B7B2")
+        svg.append("circle").attr("cx",720).attr("cy",50).attr("r", 6).style("fill", "#EDC948")
+	svg.append("circle").attr("cx",720).attr("cy",70).attr("r", 6).style("fill", "#59A14F")
+	svg.append("circle").attr("cx",720).attr("cy",90).attr("r", 6).style("fill", "#E15759")
+	svg.append("circle").attr("cx",720).attr("cy",110).attr("r", 6).style("fill", "#F28E2B")
+	svg.append("circle").attr("cx",720).attr("cy",130).attr("r", 6).style("fill", "#4E79A7")
         svg.append("text").attr("x", 730).attr("y", 30).text("Europe").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 730).attr("y", 50).text("Western Pacific").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 730).attr("y", 70).text("South East Asia").style("font-size", "15px").attr("alignment-baseline","middle")
