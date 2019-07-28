@@ -42,7 +42,7 @@ var line2 = d3.line()
 data = d3.csv("incident.csv");
 console.log(data);
 
-x.domain(d3.extent(data, function(d) { return +d.Year; }));
+x.domain([1990, 2013]);
 y.domain([0,2600000]);
 
 svg.append("path")
