@@ -43,7 +43,8 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate("+margin.left+", "+margin.top+")");
 
-data = d3.csv("incident.csv");
+d3.csv("data2.csv", function(error, data) {
+  if (error) throw error;
 
 x.domain(d3.extent(data, function(d) { return d.Year;}));
 y.domain([0, d3.max(data, function(d) {
@@ -52,6 +53,7 @@ y.domain([0, d3.max(data, function(d) {
 svg.append("path")
   .data([data])
   .attr("class", "line")
+  .style("stroke", "steelblue")
   .attr("d", line1);
 
 svg.append("path")
@@ -66,6 +68,5 @@ svg.append("g")
 
 svg.append("g")
   .call(d3.axisLeft(ys));
-    
-</script>
-</body>
+
+});
