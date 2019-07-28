@@ -32,6 +32,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
 data = d3.csv("incident.csv");
+console.log(d.Year);
   
 var line1 = d3.line()
     .x(function(d) { return x(d.Year);})
