@@ -41,7 +41,7 @@ var svg = d3.select("body").append("svg")
 
 data = d3.csv("incident.csv");
 
-x.domain([1990,2013]);
+x.domain(d3.extent(data, function(d) { return +d.Year; }));
 y.domain([0,2600000]);
 
 svg.append("path")
