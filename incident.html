@@ -48,19 +48,24 @@ svg.append("path")
   .data([data])
   .attr("class", "line")
   .attr("d", line1);
-
+  
+svg.append("circle")
+  .attr("cx", 150)
+  .attr("cy", 100)
+  .attr("r", 4);
+  
 svg.append("path")
   .data([data])
   .attr("class", "line")
   .style("stroke", "red")
   .attr("d", line2);
 
-svg.append("g")
+d3.select("svg").append("g")
   .attr("transfrom", "translate("+50+","+450+")")
   .call(d3.axisBottom(x));
 
-svg.append("g")
-  .attr("transfrom", "rotate(-90)")
+d3.select("svg").append("g")
+  .attr("transfrom", "translate("+50+", "+50+")")
   .call(d3.axisLeft(y));
 
 
