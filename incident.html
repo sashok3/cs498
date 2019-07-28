@@ -42,8 +42,7 @@ var svg = d3.select("body").append("svg")
 data = d3.csv("incident.csv");
 
 x.domain(d3.extent(data, function(d) { return d.Year;}));
-y.domain([0, d3.max(data, function(d) {
-  return Math.max(d.Incident_Cases_Africa, d.Incident_Cases_Americas); })]);
+y.domain([260000,2600000]);
 
 svg.append("path")
   .data([data])
@@ -62,6 +61,7 @@ svg.append("g")
 
 svg.append("g")
   .call(d3.axisLeft(y));
+  .attr("transform", "rotate(-90)")
 
 
 </script>
