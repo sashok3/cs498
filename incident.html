@@ -157,11 +157,11 @@ d3.csv("incident.csv", function(error, data) {
 		.call(yAxis);
 	
 	svg.append("g")
-	        .attr("x", 10)
+	        .attr("x", 20)
 	        .attr("y", 400)
 	        .attr("transform", "rotate(-90)")
 	        .style("text-anchor", "middle")
-	        .style("font-size", "16px")
+	        .style("font-size", "12px")
 	        .text("Number of Incident Cases");
 	
 	svg.append("circle").attr("cx",720).attr("cy",30).attr("r", 6).style("fill", "#76B7B2")
