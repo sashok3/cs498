@@ -41,7 +41,7 @@ svg.append("path")
   .attr("class", "line")
   .attr("d", d3.line()
       .x(function(d) { return x(+d.Year);})
-      .y(function(d) { return y(+d.Incident_Cases_Africa); });
+      .y(function(d) { return y(+d.Incident_Cases_Africa); })
 );
 
 svg.append("path")
@@ -50,7 +50,7 @@ svg.append("path")
   .style("stroke", "red")
   .attr("d", d3.line()
       .x(function(d) { return x(+d.Year); })
-      .y(function(d) { return y(+d.Incident_Cases_Americas); });
+      .y(function(d) { return y(+d.Incident_Cases_Americas); })
 );
 
 svg.append("g")
