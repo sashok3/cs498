@@ -41,7 +41,7 @@ var	parseDate = d3.time.format("%Y").parse;
  
 // Set the ranges
 var	x = d3.time.scale().range([0, 700]);
-var	y = d3.scale.linear().range([430, 0]);
+var	y = d3.scale.linear().range([height, 0]);
  
 // Define the axes
 var	xAxis = d3.svg.axis().scale(x)
@@ -148,7 +148,7 @@ d3.csv("incident.csv", function(error, data) {
                 .attr("x", 380)
 	        .attr("y", 480)
                 .style("text-anchor", "middle")
-	        .style("font-size", "20px")
+	        .style("font-size", "12px")
                 .text("Year");
 		
 	// Add the Y Axis
