@@ -33,12 +33,12 @@ var svg = d3.select("body").append("svg")
 
 var line1 = d3.line()
     .x(function(d) { return x(d.Year);})
-    console.log(d.Year);
     .y(function(d) { return y(d.Incident_Cases_Africa); });
 
 var line2 = d3.line()
     .x(function(d) { return x(d.Year); })
     .y(function(d) { return y(d.Incident_Cases_Americas); });
+  console.log(line2.x);
 
 data = d3.csv("incident.csv");
 console.log(data);
