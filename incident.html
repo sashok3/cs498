@@ -31,15 +31,15 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
-data = d3.csv("incident.csv");
-console.log(data);
+data = d3.csv("data.csv");
+  
 var line1 = d3.line()
-    .x(function(d) { return x(+d.Year);})
-    .y(function(d) { return y(+d.Incident_Cases_Africa); });
+    .x(function(d) { return x(+d.date);})
+    .y(function(d) { return y(+d.close); });
 
-var line2 = d3.line()
-    .x(function(d) { return x(+d.Year); })
-    .y(function(d) { return y(+d.Incident_Cases_Americas); });
+//var line2 = d3.line()
+    //.x(function(d) { return x(+d.Year); })
+    //.y(function(d) { return y(+d.Incident_Cases_Americas); });
   
 x.domain([1990, 2013]);
 y.domain([0,2600000]);
@@ -48,10 +48,10 @@ svg.append("path")
   .attr("class", "line")
   .attr("d", line1(data));
 
-svg.append("path")
-  .attr("class", "line")
-  .style("stroke", "red")
-  .attr("d", line2(data));
+//svg.append("path")
+  //.attr("class", "line")
+  //.style("stroke", "red")
+  //.attr("d", line2(data));
 
 svg.append("g")
   .attr("transfrom", "translate("+50+","+550+")")
