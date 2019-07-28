@@ -143,6 +143,10 @@ d3.csv("incident.csv", function(error, data) {
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")")
 		.call(xAxis);
+	svg.append("text")             
+                .attr("transform", "translate(" + (width/2) + " ," + (height + margin.top + 20) + ")")
+                .style("text-anchor", "middle")
+                .text("Year");
 		
 	// Add the Y Axis
 	svg.append("g")		
