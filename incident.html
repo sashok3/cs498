@@ -44,8 +44,8 @@ var svg = d3.select("body").append("svg")
 d3.csv("incident.csv", function(error, data) {
   if (error) throw error;
 
-x.domain(d3.extent(data, function(d) { return d.Year;}));
-y.domain([0, d3.max(data, function(d) {
+xs.domain(d3.extent(data, function(d) { return d.Year;}));
+ys.domain([0, d3.max(data, function(d) {
   return Math.max(d.Incident_Cases_Africa, d.Incident_Cases_Americas); })])
 
 svg.append("path")
