@@ -21,9 +21,9 @@ var margin = {top: 20, right: 20, bottom: 20, left: 80},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var x = d3.scaleLinear().range([0, width]);
+var x = d3.scaleLinear().domain([1990, 2013]).range([0, width]);
 console.log(x);
-var y = d3.scaleLinear().range([height, 0]);
+var y = d3.scaleLinear().domain([0,2600000]).range([height, 0]);
 console.log(y);
  
 
@@ -42,9 +42,6 @@ var line1 = d3.line()
 var line2 = d3.line()
     .x(function(d) { return x(+d.Year); })
     .y(function(d) { return y(+d.Incident_Cases_Americas); });
-  
-x.domain([1990, 2013]);
-y.domain([0,2600000]);
 
 svg.append("path")
   .attr("class", "line")
