@@ -4,13 +4,11 @@
 
 <!-- declare your styles here -->
 <style>
-
 .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 2px;
 }
-
 </style>
 <!-- end of declaration of styles -->
 <body>
@@ -20,13 +18,12 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <!--begin javascript code-->
 <script>
-
 var margin = {top: 20, right: 80, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var xs = d3.scaleTime().range([0, width]);
-var ys = d3.scaleLinear().range([height, 0]);
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
 
 var line1 = d3.line()
     .x(function(d) { return x(d.Year);})
@@ -44,14 +41,13 @@ var svg = d3.select("body").append("svg")
 
 data = d3.csv("incident.csv");
 
-xs.domain(d3.extent(data, function(d) { return d.Year;}));
-ys.domain([0, d3.max(data, function(d) {
+x.domain(d3.extent(data, function(d) { return d.Year;}));
+y.domain([0, d3.max(data, function(d) {
   return Math.max(d.Incident_Cases_Africa, d.Incident_Cases_Americas); })]);
 
 svg.append("path")
   .data([data])
   .attr("class", "line")
-  .style("stroke", "steelblue")
   .attr("d", line1);
 
 svg.append("path")
@@ -62,11 +58,11 @@ svg.append("path")
 
 svg.append("g")
   .attr("transfrom", "translate(0,"+height+")")
-  .call(d3.axisBottom(xs));
+  .call(d3.axisBottom(x));
 
 svg.append("g")
-  .call(d3.axisLeft(ys));
+  .call(d3.axisLeft(y));
+
 
 </script>
 </body>
-</html>
