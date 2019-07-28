@@ -26,12 +26,12 @@ var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 var line1 = d3.line()
-    .x(function(d) { return x(d.Year);})
-    .y(function(d) { return y(d.Incident_Cases_Africa); });
+    .x(function(d) { return x(+d.Year);})
+    .y(function(d) { return y(+d.Incident_Cases_Africa); });
 
 var line2 = d3.line()
-    .x(function(d) { return x(d.Year); })
-    .y(function(d) { return y(d.Incident_Cases_Americas); });
+    .x(function(d) { return x(+d.Year); })
+    .y(function(d) { return y(+d.Incident_Cases_Americas); });
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
