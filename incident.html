@@ -46,7 +46,7 @@ data = d3.csv("incident.csv");
 
 xs.domain(d3.extent(data, function(d) { return d.Year;}));
 ys.domain([0, d3.max(data, function(d) {
-  return Math.max(d.Incident_Cases_Africa, d.Incident_Cases_Americas); })])
+  return Math.max(d.Incident_Cases_Africa, d.Incident_Cases_Americas); })]);
 
 svg.append("path")
   .data([data])
