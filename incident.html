@@ -190,21 +190,8 @@ d3.csv("incident.csv", function(error, data) {
 	            .attr("cx", function(d) { return x(d.Year); })
 	            .attr("cy", function(d) { return y(d.Incident_Cases_Europe); })
                     .attr("r", 3)
-	            .on("mouseover", function(d) {
-			    d3.select(this)
-			       .style("cursor", "pointer")
-                               .append("text")
-                                 .attr("class", "text")
-                                 .text('Blah Blah')
-			         .attr("x", function(d) { return x(d.Year); })
-                                 .attr("y", function(d) { return y(d.Incident_Cases_Europe); });
-                      })
-	             .on("mouseout", function(d) {
-                            d3.select(this)
-                               .style("cursor", "none")  
-                               .transition()
-                               .selectAll(".text").remove();
-                       })
+	            .append("svg:title")
+                    .text(function(d) { return d.Incident_Cases_Europe; });
 	
 	var fixeddot2 = svg.selectAll("dot")
                 .data(data)
