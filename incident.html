@@ -190,8 +190,8 @@ d3.csv("incident.csv", function(error, data) {
 	            .attr("cx", function(d) { return x(d.Year); })
 	            .attr("cy", function(d) { return y(d.Incident_Cases_Europe); })
                     .attr("r", 3)
-	            .append("svg:title")
-                       .text(function(d) { return d.Incident_Cases_Europe; });
+	            .on("mouseover", handleMouseOver)
+                    .on("mouseout", handleMouseOut);
 	
 	var fixeddot2 = svg.selectAll("dot")
                 .data(data)
@@ -251,6 +251,36 @@ d3.csv("incident.csv", function(error, data) {
 	svg.append("text").attr("x", 720).attr("y", 90).text("Eastern Mediterranean").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 720).attr("y", 110).text("Americas").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 720).attr("y", 130).text("Africa").style("font-size", "13px").attr("alignment-baseline","middle")
+
+function handleMouseOver(d, i) {  // Add interactivity
+
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 5
+            });
+
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Year:" + d.Year + " Incident Cases: " + d.Incident_Cases_Europe,  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return xScale(d.Year) - 30; },
+                y: function() { return yScale(d.Incident_Cases_Europe) - 15; }
+            })
+            .text(function() {
+              return [d.Year, d.Incident_Cases_Europe];  // Value of the text
+            });
+          }
+function handleMouseOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#76B7B2",
+              r: 3
+            });
+
+            // Select text by id and then remove
+            d3.select("Year:" + d.Year + " Incident Cases: " + d.Incident_Cases_Europe).remove();  // Remove text location
+          }
+
 });
 
  
