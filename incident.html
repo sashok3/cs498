@@ -267,7 +267,7 @@ function handleMouseOver(d, i) {  // Add interactivity
                 y: function() { return y(d.Incident_Cases_Europe) - 15; }
             })
             .text(function() {
-              return d.Year + d.Incident_Cases_Europe;  // Value of the text
+              return "Cases: " + d.Incident_Cases_Europe;  // Value of the text
             });
           }
 function handleMouseOut(d, i) {
