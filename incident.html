@@ -102,6 +102,7 @@ d3.csv("incident.csv", function(error, data) {
 		d.Incident_Cases_EM = +d.Incident_Cases_EM;
 		d.Incident_Cases_Europe = +d.Incident_Cases_Europe;
 	});
+
 	
 	// Scale the range of the data
 	x.domain(d3.extent(data, function(d) { return d.Year; }));
@@ -169,7 +170,7 @@ d3.csv("incident.csv", function(error, data) {
 	        .style("font-size", "16px")
 	        .text("Number of Incident Cases");
 	
-	var fixeddot2 = svg.selectAll("circle")
+	var fixeddot2 = svg.selectAll("dot")
                 .data(data)
                 .enter()
                 .append("circle")
