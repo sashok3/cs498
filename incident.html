@@ -85,6 +85,18 @@ var	svg = d3.select("body")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("incident.csv", function(error, data) {
+	data.forEach(function(d) {
+		d.Year = parseDate(d.Year);
+		d.Incident_Cases_Africa = +d.Incident_Cases_Africa;
+		d.Incident_Cases_Americas = +d.Incident_Cases_Americas;
+		d.Incident_Cases_WP = +d.Incident_Cases_WP;
+		d.Incident_Cases_SEA = +d.Incident_Cases_SEA;
+		d.Incident_Cases_EM = +d.Incident_Cases_EM;
+		d.Incident_Cases_Europe = +d.Incident_Cases_Europe;
+	});
 	
 var fixeddot = svg.selectAll("dot")
     .data(data)
@@ -133,18 +145,7 @@ var fixeddot6 = svg.selectAll("dot")
     .attr("r", 4)
     .attr("cx", function(d) { return x(d.Year); })
     .attr("cy", function(d) { return y(d.Incident_Cases_WP); });
- 
-// Get the data
-d3.csv("incident.csv", function(error, data) {
-	data.forEach(function(d) {
-		d.Year = parseDate(d.Year);
-		d.Incident_Cases_Africa = +d.Incident_Cases_Africa;
-		d.Incident_Cases_Americas = +d.Incident_Cases_Americas;
-		d.Incident_Cases_WP = +d.Incident_Cases_WP;
-		d.Incident_Cases_SEA = +d.Incident_Cases_SEA;
-		d.Incident_Cases_EM = +d.Incident_Cases_EM;
-		d.Incident_Cases_Europe = +d.Incident_Cases_Europe;
-	});
+
  
 	// Scale the range of the data
 	x.domain(d3.extent(data, function(d) { return d.Year; }));
