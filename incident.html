@@ -28,19 +28,6 @@ path {
     stroke: #fff;
 }
 
-div.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width: 60px;					
-    height: 28px;					
-    padding: 2px;				
-    font: 12px sans-serif;		
-    background: lightsteelblue;	
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;			
-}
- 
 </style>
 <body>
  
@@ -265,7 +252,6 @@ function handleMouseOver(d, i) {  // Add interactivity
                id: "Text",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
                 y: function() { return y(d.Incident_Cases_Europe) - 30; }
-		font-weight: bold;
             })
             .text(function() {
               return "Cases: " + d.Incident_Cases_Europe;  // Value of the text
