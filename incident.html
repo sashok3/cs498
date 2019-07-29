@@ -187,7 +187,9 @@ d3.csv("incident.csv", function(error, data) {
                     .style("fill", "#EDC948")
 	            .attr("cx", function(d) { return x(d.Year); })
 	            .attr("cy", function(d) { return y(d.Incident_Cases_WP); })
-                    .attr("r", 3);
+                    .attr("r", 3)
+	            .on("mouseover", handleMouseOver2)
+                    .on("mouseout", handleMouseOut2);
 	
 	var fixeddot3 = svg.selectAll("dot")
                 .data(data)
