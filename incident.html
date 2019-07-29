@@ -262,9 +262,9 @@ function handleMouseOver(d, i) {  // Add interactivity
 
             // Specify where to put label of text
             svg.append("text").attr({
-               id: "Year:" + d.Year + " Incident Cases: " + d.Incident_Cases_Europe,  // Create an id for text so we can select it later for removing on mouseout
-                x: function() { return xScale(d.Year) - 30; },
-                y: function() { return yScale(d.Incident_Cases_Europe) - 15; }
+               id: "Text",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 30; },
+                y: function() { return y(d.Incident_Cases_Europe) - 15; }
             })
             .text(function() {
               return [d.Year, d.Incident_Cases_Europe];  // Value of the text
@@ -278,7 +278,7 @@ function handleMouseOut(d, i) {
             });
 
             // Select text by id and then remove
-            d3.select("Year:" + d.Year + " Incident Cases: " + d.Incident_Cases_Europe).remove();  // Remove text location
+            d3.select("Text").remove();  // Remove text location
           }
 
 });
