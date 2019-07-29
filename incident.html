@@ -169,6 +169,15 @@ d3.csv("incident.csv", function(error, data) {
 	        .style("font-size", "16px")
 	        .text("Number of Incident Cases");
 	
+	var fixeddot2 = svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                    .style("fill", "#76B7B2")
+	            .attr("cx", function(d) { return x(d.Year); })
+	            .attr("cy", function(d) { return y(d.Incident_Cases_Europe); })
+                    .attr("r", 3);
+	
 	var fixeddot = svg.selectAll("circle")
                 .data(data)
                 .enter()
@@ -178,14 +187,7 @@ d3.csv("incident.csv", function(error, data) {
 	            .attr("cy", function(d) { return y(d.Incident_Cases_Africa); })
                     .attr("r", 3);
 	
-	var fixeddot2 = svg.selectAll("circle")
-                .data(data)
-                .enter()
-                .append("circle")
-                    .style("fill", "#76B7B2")
-	            .attr("cx", function(d) { return x(d.Year); })
-	            .attr("cy", function(d) { return y(d.Incident_Cases_Europe); })
-                    .attr("r", 3);
+	
 	
 	svg.append("circle").attr("cx",710).attr("cy",30).attr("r", 6).style("fill", "#76B7B2")
         svg.append("circle").attr("cx",710).attr("cy",50).attr("r", 6).style("fill", "#EDC948")
