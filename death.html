@@ -17,6 +17,10 @@ path {
 	stroke-width: 1;
 	shape-rendering: crispEdges;
 }
+.dot {
+    fill: #ffab00;
+    stroke: #fff;
+}
 
 
 </style>
@@ -159,6 +163,60 @@ d3.csv("death.csv", function(error, data) {
   	.style("text-anchor", "middle")
   	.style("font-size", "16px")
   	.text("Death Count");
+	
+var fixeddot = svg.selectAll("dot")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                      .style("fill", "#76B7B2")
+  	                  .attr("cx", function(d) { return x(d.Year); })
+  	                  .attr("cy", function(d) { return y(d.Death_Count_Europe); })
+                      .attr("r", 3);
+
+  	var fixeddot2 = svg.selectAll("dot")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                      .style("fill", "#EDC948")
+  	                  .attr("cx", function(d) { return x(d.Year); })
+  	                  .attr("cy", function(d) { return y(d.Death_Count_WP); })
+                      .attr("r", 3);
+
+  	var fixeddot3 = svg.selectAll("dot")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                      .style("fill", "#59A14F")
+  	                  .attr("cx", function(d) { return x(d.Year); })
+  	                  .attr("cy", function(d) { return y(d.Death_Count_SEA); })
+                      .attr("r", 3);
+
+  	var fixeddot4 = svg.selectAll("dot")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                      .style("fill", "#E15759")
+  	                  .attr("cx", function(d) { return x(d.Year); })
+  	                  .attr("cy", function(d) { return y(d.Death_Count_EM); })
+                      .attr("r", 3);
+
+  	var fixeddot5 = svg.selectAll("dot")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                      .style("fill", "#F28E2B")
+  	                  .attr("cx", function(d) { return x(d.Year); })
+  	                  .attr("cy", function(d) { return y(d.Death_Count_Americas); })
+                      .attr("r", 3);
+
+  	var fixeddot6 = svg.selectAll("dot")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                      .style("fill", "#4E79A7")
+  	                  .attr("cx", function(d) { return x(d.Year); })
+  	                  .attr("cy", function(d) { return y(d.Death_Count_Africa); })
+                      .attr("r", 3);
 
 	svg.append("circle").attr("cx",710).attr("cy",30).attr("r", 6).style("fill", "#76B7B2")
         svg.append("circle").attr("cx",710).attr("cy",50).attr("r", 6).style("fill", "#EDC948")
