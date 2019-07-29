@@ -169,7 +169,7 @@ d3.csv("incident.csv", function(error, data) {
 	        .style("font-size", "16px")
 	        .text("Number of Incident Cases");
 	
-	svg.selectAll("circle")
+	var fixeddot = svg.selectAll("circle")
                 .data(data)
                 .enter()
                 .append("circle")
@@ -178,7 +178,7 @@ d3.csv("incident.csv", function(error, data) {
 	            .attr("cy", function(d) { return y(d.Incident_Cases_Africa); })
                     .attr("r", 3);
 	
-	svg.selectAll("circle")
+	var fixeddot2 = svg.selectAll("circle")
                 .data(data)
                 .enter()
                 .append("circle")
