@@ -136,11 +136,11 @@ d3.csv("population.csv", function(error, data) {
 		.call(xAxis);
 
 	svg.append("text")
-    .attr("x", 350)
+          .attr("x", 350)
 	  .attr("y", 460)
-    .style("text-anchor", "middle")
+          .style("text-anchor", "middle")
 	  .style("font-size", "16px")
-    .text("Year");
+          .text("Year");
 
 	// Add the Y Axis
 	svg.append("g")
@@ -148,8 +148,8 @@ d3.csv("population.csv", function(error, data) {
 		.call(yAxis);
 
 	svg.append("text")
-	  .attr("y", -80)
-    .attr("x", -200)
+	  .attr("y", -100)
+          .attr("x", -200)
 	  .attr("transform", "rotate(-90)")
 	  .style("text-anchor", "middle")
 	  .style("font-size", "12px")
