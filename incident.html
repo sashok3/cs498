@@ -194,10 +194,10 @@ d3.csv("incident.csv", function(error, data) {
 			    d3.select(this)
 			       .style("cursor", "pointer")
                                .append("text")
-                               .attr("class", "text")
-                               .text('Blah Blah')
-			       .attr("x", function(d) { return x(d.Year); })
-                               .attr("y", function(d) { return y(d.Incident_Cases_Europe); });
+                                 .attr("class", "text")
+                                 .text('Blah Blah')
+			         .attr("x", function(d) { return x(d.Year); })
+                                 .attr("y", function(d) { return y(d.Incident_Cases_Europe); });
                       })
 	             .on("mouseout", function(d) {
                             d3.select(this)
