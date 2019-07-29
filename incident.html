@@ -264,7 +264,7 @@ function handleMouseOver(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Incident_Cases_Europe) - 15; }
+                y: function() { return y(d.Incident_Cases_Europe) - 30; }
             })
             .text(function() {
               return "Cases: " + d.Incident_Cases_Europe;  // Value of the text
