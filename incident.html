@@ -220,7 +220,9 @@ d3.csv("incident.csv", function(error, data) {
                     .style("fill", "#F28E2B")
 	            .attr("cx", function(d) { return x(d.Year); })
 	            .attr("cy", function(d) { return y(d.Incident_Cases_Americas); })
-                    .attr("r", 3);
+                    .attr("r", 3)
+	            .on("mouseover", handleMouseOver5)
+                    .on("mouseout", handleMouseOut5);
 	
 	var fixeddot6 = svg.selectAll("dot")
                 .data(data)
@@ -361,6 +363,36 @@ function handleMouseOut4(d, i) {
 
             // Select text by id and then remove
             d3.select("#Text4").remove();  // Remove text location
+          }
+	
+function handleMouseOver5(d, i) {  // Add interactivity
+
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text5",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Incident_Cases_Americas) + 20; }
+            })
+            .text(function() {
+              return "Cases: " + d.Incident_Cases_Americas;  // Value of the text
+            });
+          }
+	
+function handleMouseOut4(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#F28E2B",
+              r: 3
+            });
+
+            // Select text by id and then remove
+            d3.select("#Text5").remove();  // Remove text location
           }
 
 
