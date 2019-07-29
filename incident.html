@@ -195,7 +195,7 @@ d3.csv("incident.csv", function(error, data) {
 			       .style("cursor", "pointer")
                                .append("text")
                                .attr("class", "text")
-                               .text('d.Incident_Cases_Europe')
+                               .text('Blah Blah')
 			       .attr("x", function(d) { return x(d.Year); })
                                .attr("y", function(d) { return y(d.Incident_Cases_Europe); });
                       })
@@ -203,7 +203,6 @@ d3.csv("incident.csv", function(error, data) {
                             d3.select(this)
                                .style("cursor", "none")  
                                .transition()
-                               .duration(duration)
                                .selectAll(".text").remove();
                        })
 	
