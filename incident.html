@@ -384,13 +384,12 @@ function handleMouseOver5(d, i) {  // Add interactivity
             });
           }
 	
-function handleMouseOut4(d, i) {
+function handleMouseOut5(d, i) {
             // Use D3 to select element, change color back to normal
             d3.select(this).attr({
               fill: "#F28E2B",
               r: 3
             });
-
             // Select text by id and then remove
             d3.select("#Text5").remove();  // Remove text location
           }
