@@ -105,19 +105,21 @@ d3.csv("incident.csv", function(error, data) {
 	
 var fixeddot = svg.selectAll("circle")
     .data(data)
-    .enter().append("circle")
-    .style("fill", "#4E79A7")
-    .attr("r", 3)
-    .attr("cx", function(d) { return x(d.Year); })
-    .attr("cy", function(d) { return y(d.Incident_Cases_Africa); });
+    .enter()
+    .append("circle")
+        .style("fill", "#4E79A7")
+        .attr("r", 3)
+        .attr("cx", function(d) { return x(d.Year); })
+        .attr("cy", function(d) { return y(d.Incident_Cases_Africa); });
 
 var fixeddot2 = svg.selectAll("circle")
     .data(data)
-    .enter().append("circle")
-    .style("fill", "#F28E2B")
-    .attr("r", 3)
-    .attr("cx", function(d) { return x(d.Year); })
-    .attr("cy", function(d) { return y(d.Incident_Cases_Americas); });
+    .enter()
+    .append("circle")
+        .style("fill", "#F28E2B")
+        .attr("r", 3)
+        .attr("cx", function(d) { return x(d.Year); })
+        .attr("cy", function(d) { return y(d.Incident_Cases_Americas); });
 
 var fixeddot3 = svg.selectAll("circle")
     .data(data)
