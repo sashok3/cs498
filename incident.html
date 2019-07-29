@@ -91,44 +91,48 @@ var fixeddot = svg.selectAll("dot")
     .enter().append("circle")
     .attr("fill", "#4E79A7")
     .attr("r", 4)
-    .attr("cx", function(d) { return x(d.Year);})
-    .attr("cy", function(d) { return y(d.Incident_Cases_Africa);});
+    .attr("cx", function(d) { return x(d.Year); })
+    .attr("cy", function(d) { return y(d.Incident_Cases_Africa); });
 
 var fixeddot2 = svg.selectAll("dot")
     .data(data)
     .enter().append("circle")
     .attr("fill", "#F28E2B")
-    .attr("r", 4);
-    .attr("cx", function(d) { return x(d.Year);})
-    .attr("cy", function(d) { return y(d.Incident_Cases_Americas);});
+    .attr("r", 4)
+    .attr("cx", function(d) { return x(d.Year); })
+    .attr("cy", function(d) { return y(d.Incident_Cases_Americas); });
+
 var fixeddot3 = svg.selectAll("dot")
     .data(data)
     .enter().append("circle")
     .attr("fill", "#76B7B2")
-    .attr("r", 4);
-    .attr("cx", function(d) { return x(d.Year);})
-    .attr("cy", function(d) { return y(d.Incident_Cases_Europe);});
+    .attr("r", 4)
+    .attr("cx", function(d) { return x(d.Year); })
+    .attr("cy", function(d) { return y(d.Incident_Cases_Europe); });
+
 var fixeddot4 = svg.selectAll("dot")
     .data(data)
     .enter().append("circle")
     .attr("fill", "#59A14F")
-    .attr("r", 4);
-    .attr("cx", function(d) { return x(d.Year);})
-    .attr("cy", function(d) { return y(d.Incident_Cases_SEA);});
+    .attr("r", 4)
+    .attr("cx", function(d) { return x(d.Year); })
+    .attr("cy", function(d) { return y(d.Incident_Cases_SEA); });
+
 var fixeddot5 = svg.selectAll("dot")
     .data(data)
     .enter().append("circle")
     .attr("fill", "#E15759")
-    .attr("r", 4);
-    .attr("cx", function(d) { return x(d.Year);})
-    .attr("cy", function(d) { return y(d.Incident_Cases_EM);});
+    .attr("r", 4)
+    .attr("cx", function(d) { return x(d.Year); })
+    .attr("cy", function(d) { return y(d.Incident_Cases_EM); });
+
 var fixeddot6 = svg.selectAll("dot")
     .data(data)
     .enter().append("circle")
     .attr("fill", "#EDC948")
-    .attr("r", 4);
-    .attr("cx", function(d) { return x(d.Year);}
-    .attr("cy", function(d) { return y(d.Incident_Cases_WP);});
+    .attr("r", 4)
+    .attr("cx", function(d) { return x(d.Year); })
+    .attr("cy", function(d) { return y(d.Incident_Cases_WP); });
  
 // Get the data
 d3.csv("incident.csv", function(error, data) {
