@@ -191,7 +191,7 @@ d3.csv("incident.csv", function(error, data) {
 	            .attr("cy", function(d) { return y(d.Incident_Cases_Europe); })
                     .attr("r", 3)
 	            .append("svg:title")
-                    .text(function(d) { return d.Incident_Cases_Europe; });
+                       .text(function(d) { return d.Incident_Cases_Europe; });
 	
 	var fixeddot2 = svg.selectAll("dot")
                 .data(data)
