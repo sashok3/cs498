@@ -166,7 +166,9 @@ d3.csv("population.csv", function(error, data) {
                       .style("fill", "#76B7B2")
   	              .attr("cx", function(d) { return x(d.Year); })
   	              .attr("cy", function(d) { return y(d.Pop_Europe); })
-                       .attr("r", 3);
+                      .attr("r", 3)
+	              .on("mouseover", handleMouseOver)
+                      .on("mouseout", handleMouseOut);
 
   	var fixeddot2 = svg.selectAll("dot")
                   .data(data)
@@ -175,7 +177,9 @@ d3.csv("population.csv", function(error, data) {
                       .style("fill", "#EDC948")
   	              .attr("cx", function(d) { return x(d.Year); })
   	              .attr("cy", function(d) { return y(d.Pop_WP); })
-                      .attr("r", 3);
+                      .attr("r", 3)
+	              .on("mouseover", handleMouseOver2)
+                      .on("mouseout", handleMouseOut2);
 
   	var fixeddot3 = svg.selectAll("dot")
                   .data(data)
@@ -184,7 +188,9 @@ d3.csv("population.csv", function(error, data) {
                       .style("fill", "#59A14F")
   	              .attr("cx", function(d) { return x(d.Year); })
   	              .attr("cy", function(d) { return y(d.Pop_SEA); })
-                      .attr("r", 3);
+                      .attr("r", 3)
+	              .on("mouseover", handleMouseOver3)
+                      .on("mouseout", handleMouseOut3);
 
   	var fixeddot4 = svg.selectAll("dot")
                   .data(data)
@@ -193,7 +199,9 @@ d3.csv("population.csv", function(error, data) {
                       .style("fill", "#E15759")
   	              .attr("cx", function(d) { return x(d.Year); })
   	              .attr("cy", function(d) { return y(d.Pop_EM); })
-                      .attr("r", 3);
+                      .attr("r", 3)
+	              .on("mouseover", handleMouseOver4)
+                      .on("mouseout", handleMouseOut4);
 
   	var fixeddot5 = svg.selectAll("dot")
                   .data(data)
@@ -202,7 +210,9 @@ d3.csv("population.csv", function(error, data) {
                       .style("fill", "#F28E2B")
   	               .attr("cx", function(d) { return x(d.Year); })
   	               .attr("cy", function(d) { return y(d.Pop_Americas); })
-                      .attr("r", 3);
+                       .attr("r", 3)
+	               .on("mouseover", handleMouseOver5)
+                       .on("mouseout", handleMouseOut5);
 
   	var fixeddot6 = svg.selectAll("dot")
                   .data(data)
@@ -211,7 +221,9 @@ d3.csv("population.csv", function(error, data) {
                       .style("fill", "#4E79A7")
   	              .attr("cx", function(d) { return x(d.Year); })
   	              .attr("cy", function(d) { return y(d.Pop_Africa); })
-                      .attr("r", 3);
+                      .attr("r", 3)
+	              .on("mouseover", handleMouseOver6)
+                      .on("mouseout", handleMouseOut6);
 
 	svg.append("circle").attr("cx",690).attr("cy",30).attr("r", 6).style("fill", "#76B7B2")
         svg.append("circle").attr("cx",690).attr("cy",50).attr("r", 6).style("fill", "#EDC948")
@@ -225,6 +237,163 @@ d3.csv("population.csv", function(error, data) {
 	svg.append("text").attr("x", 700).attr("y", 90).text("Eastern Mediterranean").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 700).attr("y", 110).text("Americas").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 700).attr("y", 130).text("Africa").style("font-size", "13px").attr("alignment-baseline","middle")
+function handleMouseOver(d, i) {  // Add interactivity
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Pop_Europe) - 30; }
+            })
+            .text(function() {
+              return "Popl: " + d.Pop_Europe;  // Value of the text
+            });
+          }
+function handleMouseOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#76B7B2",
+              r: 3
+            });
+            // Select text by id and then remove
+            d3.select("#Text").remove();  // Remove text location
+          }
+function handleMouseOver2(d, i) {  // Add interactivity
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text2",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Pop_WP) - 30; }
+            })
+            .text(function() {
+              return "Popl: " + d.Pop_WP;  // Value of the text
+            });
+          }
+function handleMouseOut2(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#EDC948",
+              r: 3
+            });
+            // Select text by id and then remove
+            d3.select("#Text2").remove();  // Remove text location
+          }
+
+function handleMouseOver3(d, i) {  // Add interactivity
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text3",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Pop_SEA) - 20; }
+            })
+            .text(function() {
+              return "Popl: " + d.Pop_SEA;  // Value of the text
+            });
+          }
+function handleMouseOut3(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#59A14F",
+              r: 3
+            });
+            // Select text by id and then remove
+            d3.select("#Text3").remove();  // Remove text location
+          }
+
+function handleMouseOver4(d, i) {  // Add interactivity
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text4",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Pop_EM) - 20; }
+            })
+            .text(function() {
+              return "Popl: " + d.Pop_EM;  // Value of the text
+            });
+          }
+
+function handleMouseOut4(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#E15759",
+              r: 3
+            });
+            // Select text by id and then remove
+            d3.select("#Text4").remove();  // Remove text location
+          }
+
+function handleMouseOver5(d, i) {  // Add interactivity
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text5",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Pop_Americas) + 20; }
+            })
+            .text(function() {
+              return "Popl: " + d.Pop_Americas;  // Value of the text
+            });
+          }
+
+function handleMouseOut5(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#F28E2B",
+              r: 3
+            });
+            // Select text by id and then remove
+            d3.select("#Text5").remove();  // Remove text location
+          }
+
+function handleMouseOver6(d, i) {  // Add interactivity
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text5",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Pop_Africa) - 15; }
+            })
+            .text(function() {
+              return "Popl: " + d.Pop_Africa;  // Value of the text
+            });
+          }
+
+function handleMouseOut6(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#4E79A7",
+              r: 3
+            });
+            // Select text by id and then remove
+            d3.select("#Text5").remove();  // Remove text location
+          }
 });
 
 </script>
