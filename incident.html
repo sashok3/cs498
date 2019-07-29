@@ -393,6 +393,35 @@ function handleMouseOut5(d, i) {
             // Select text by id and then remove
             d3.select("#Text5").remove();  // Remove text location
           }
+	
+function handleMouseOver6(d, i) {  // Add interactivity
+
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "black",
+              r: 6
+            });
+
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "Text5",  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return x(d.Year) - 60; },
+                y: function() { return y(d.Incident_Cases_Africa) + 20; }
+            })
+            .text(function() {
+              return "Cases: " + d.Incident_Cases_Africa;  // Value of the text
+            });
+          }
+	
+function handleMouseOut6(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "#4E79A7",
+              r: 3
+            });
+            // Select text by id and then remove
+            d3.select("#Text5").remove();  // Remove text location
+          }
 
 
 });
