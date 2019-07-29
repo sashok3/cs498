@@ -103,7 +103,7 @@ d3.csv("incident.csv", function(error, data) {
 		d.Incident_Cases_Europe = +d.Incident_Cases_Europe;
 	});
 	
-svg.selectAll("circle")
+var fixeddot = d3.select("svg").selectAll("circle")
     .data(data)
     .enter()
     .append("circle")
