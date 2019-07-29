@@ -169,7 +169,7 @@ d3.csv("incident.csv", function(error, data) {
 	        .style("font-size", "16px")
 	        .text("Number of Incident Cases");
 	
-	var fixeddot2 = svg.selectAll("dot")
+	var fixeddot = svg.selectAll("dot")
                 .data(data)
                 .enter()
                 .append("circle")
@@ -178,15 +178,50 @@ d3.csv("incident.csv", function(error, data) {
 	            .attr("cy", function(d) { return y(d.Incident_Cases_Europe); })
                     .attr("r", 3);
 	
-	var fixeddot = svg.selectAll("dot")
+	var fixeddot2 = svg.selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                    .style("fill", "#EDC948")
+	            .attr("cx", function(d) { return x(d.Year); })
+	            .attr("cy", function(d) { return y(d.Incident_Cases_WP); })
+                    .attr("r", 3);
+	
+	var fixeddot3 = svg.selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                    .style("fill", "#59A14F")
+	            .attr("cx", function(d) { return x(d.Year); })
+	            .attr("cy", function(d) { return y(d.Incident_Cases_SEA); })
+                    .attr("r", 3);
+	
+	var fixeddot4 = svg.selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                    .style("fill", "#E15759")
+	            .attr("cx", function(d) { return x(d.Year); })
+	            .attr("cy", function(d) { return y(d.Incident_Cases_EM); })
+                    .attr("r", 3);
+	
+	var fixeddot5 = svg.selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                    .style("fill", "#F28E2B")
+	            .attr("cx", function(d) { return x(d.Year); })
+	            .attr("cy", function(d) { return y(d.Incident_Cases_Americas); })
+                    .attr("r", 3);
+	
+	var fixeddot6 = svg.selectAll("dot")
                 .data(data)
                 .enter()
                 .append("circle")
                     .style("fill", "#4E79A7")
 	            .attr("cx", function(d) { return x(d.Year); })
-	            .attr("cy", function(d) { return y(d.Incident_Cases_Africa); })
+	            .attr("cy", function(d) { return y(d.Incident_Cases_Africas); })
                     .attr("r", 3);
-	
 	
 	
 	svg.append("circle").attr("cx",710).attr("cy",30).attr("r", 6).style("fill", "#76B7B2")
