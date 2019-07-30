@@ -21,6 +21,27 @@ path {
     fill: #ffab00;
     stroke: #fff;
 }
+ul {
+  list-style: none;
+}
+li {
+  background: slategrey;
+  display: inline-block;
+  /* inline block hack for IE 6&7 */
+  zoom: 1;
+  *display: inline;
+  padding: 4px;
+  color: white
+  }
+  a:link {
+    color: white;
+  }
+   a:visited {
+    color: black;
+  }
+   a:hover {
+    font-weight: bold;
+  }
 
 
 </style>
@@ -28,7 +49,15 @@ path {
 
 <!-- load the d3.js library -->
 <script src="https://d3js.org/d3.v3.min.js"></script>
+<h1> Tuberculosis burden by region </h1>
 <h2> Death Count in regions reported over the years (1990-2013) </h2>
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="incident.html">Previous</a></li>
+  <li><a href="population.html">Slide 1</a></li>
+  <li><a href="incident.html">Slide 2</a></li>
+  <li><a href="death.html">Slide 3</a></li>
+</ul>
 <script>
 
 // Set the dimensions of the canvas / graph
@@ -244,6 +273,9 @@ var comma = d3.format(",");
 	svg.append("text").attr("x", 720).attr("y", 90).text("Eastern Mediterranean").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 720).attr("y", 110).text("Americas").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 720).attr("y", 130).text("Africa").style("font-size", "13px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", 380).attr("y", 250).text("South East Asia and Western Pacific witness a ").style("font-size", "13px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", 380).attr("y", 265).text("significant decrease while Africa").style("font-size", "13px").attr("alignment-baseline","middle")
+	svg.append("text").attr("x", 380).attr("y", 280).text("faces a slight increase").style("font-size", "13px").attr("alignment-baseline","middle")
 
 function handleMouseOver(d, i) {  // Add interactivity
             // Use D3 to select element, change color and size
