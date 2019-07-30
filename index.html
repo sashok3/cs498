@@ -5,9 +5,18 @@
 </head>
 <body>
 <style>
-ul li{
-  display: inline-block;
+ul {
+  list-style: none;
 }
+li {
+  background: slategrey;
+  display: inline-block;
+  /* inline block hack for IE 6&7 */
+  zoom: 1;
+  *display: inline;
+  padding: 4px;
+  color: white
+  }
 </style>
 
 <h1>Tuberculosis burden by region</h1>
