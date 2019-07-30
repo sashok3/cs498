@@ -224,6 +224,7 @@ d3.csv("population.csv", function(error, data) {
                       .attr("r", 3)
 	              .on("mouseover", handleMouseOver6)
                       .on("mouseout", handleMouseOut6);
+	 var comma = d3.format(",");
 
 	svg.append("circle").attr("cx",690).attr("cy",30).attr("r", 6).style("fill", "#76B7B2")
         svg.append("circle").attr("cx",690).attr("cy",50).attr("r", 6).style("fill", "#EDC948")
@@ -250,7 +251,7 @@ function handleMouseOver(d, i) {  // Add interactivity
                 y: function() { return y(d.Pop_Europe) - 30; }
             })
             .text(function() {
-              return "Popl: " + d.Pop_Europe;  // Value of the text
+              return "Popl: " + comma(d.Pop_Europe);  // Value of the text
             });
           }
 function handleMouseOut(d, i) {
@@ -275,7 +276,7 @@ function handleMouseOver2(d, i) {  // Add interactivity
                 y: function() { return y(d.Pop_WP) - 30; }
             })
             .text(function() {
-              return "Popl: " + d.Pop_WP;  // Value of the text
+              return "Popl: " + comma(d.Pop_WP);  // Value of the text
             });
           }
 function handleMouseOut2(d, i) {
@@ -301,7 +302,7 @@ function handleMouseOver3(d, i) {  // Add interactivity
                 y: function() { return y(d.Pop_SEA) - 20; }
             })
             .text(function() {
-              return "Popl: " + d.Pop_SEA;  // Value of the text
+              return "Popl: " + comma(d.Pop_SEA);  // Value of the text
             });
           }
 function handleMouseOut3(d, i) {
@@ -327,7 +328,7 @@ function handleMouseOver4(d, i) {  // Add interactivity
                 y: function() { return y(d.Pop_EM) - 20; }
             })
             .text(function() {
-              return "Popl: " + d.Pop_EM;  // Value of the text
+              return "Popl: " + comma(d.Pop_EM);  // Value of the text
             });
           }
 
@@ -354,7 +355,7 @@ function handleMouseOver5(d, i) {  // Add interactivity
                 y: function() { return y(d.Pop_Americas) + 20; }
             })
             .text(function() {
-              return "Popl: " + d.Pop_Americas;  // Value of the text
+              return "Popl: " + comma(d.Pop_Americas);  // Value of the text
             });
           }
 
@@ -381,7 +382,7 @@ function handleMouseOver6(d, i) {  // Add interactivity
                 y: function() { return y(d.Pop_Africa) - 15; }
             })
             .text(function() {
-              return "Popl: " + d.Pop_Africa;  // Value of the text
+              return "Popl: " + comma(d.Pop_Africa);  // Value of the text
             });
           }
 
