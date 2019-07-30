@@ -238,9 +238,9 @@ d3.csv("population.csv", function(error, data) {
 	svg.append("text").attr("x", 700).attr("y", 90).text("Eastern Mediterranean").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 700).attr("y", 110).text("Americas").style("font-size", "13px").attr("alignment-baseline","middle")
 	svg.append("text").attr("x", 700).attr("y", 130).text("Africa").style("font-size", "13px").attr("alignment-baseline","middle")
-	svg.append("text").attr("x", 400).attr("y", 110).text("World population steadily increases over time").style("font-size", "12px").attr("alignment-baseline","middle")
-        svg.append("text").attr("x", 400).attr("y", 130).text("South East Asia has largest population").style("font-size", "12px").attr("alignment-baseline","middle")
-	svg.append("text").attr("x", 400).attr("y", 150).text("whereas Eastern Mediterranean region has the least").style("font-size", "12px").attr("alignment-baseline","middle")
+	svg.append("text").attr("x", 350).attr("y", 110).text("World population steadily increases over time").style("font-size", "12px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", 350).attr("y", 125).text("Western Pacific has the largest population").style("font-size", "12px").attr("alignment-baseline","middle")
+	svg.append("text").attr("x", 350).attr("y", 145).text("while Eastern Mediterranean has the least").style("font-size", "12px").attr("alignment-baseline","middle")
 function handleMouseOver(d, i) {  // Add interactivity
             // Use D3 to select element, change color and size
             d3.select(this).attr({
