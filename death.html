@@ -17,6 +17,16 @@ path {
 	stroke-width: 1;
 	shape-rendering: crispEdges;
 }
+	
+ul li{
+  display: inline-block;
+}
+	
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
+	
 .dot {
     fill: #ffab00;
     stroke: #fff;
@@ -43,7 +53,6 @@ li {
     font-weight: bold;
   }
 
-
 </style>
 <body>
 
@@ -59,7 +68,6 @@ li {
   <li><a href="death.html"><b>Slide 3<b></a></li>
 </ul>
 <h4> Note : Hold mouse over data points to see exact death count </h4>
-
 <script>
 
 // Set the dimensions of the canvas / graph
@@ -440,16 +448,16 @@ function handleMouseOut6(d, i) {
 });
 
 </script>
-	  <h2> What do we see? </h2>
-	  <p style="font-size:130%;"> From the data we can see that the death count decreases significantly for both South East Asia as well as 
+<h2> What do we see? </h2>
+<p style="font-size:130%;"> From the data we can see that the death count decreases significantly for both South East Asia as well as 
 	Western Pacific. Africa faces a slight increase while the trend for Eastern Mediterranean, Europe and Americas remain almost
 	constant.The previous slide (analyzing Incident Cases) seemed to indicate that South East Asia would have an increasing trend in
 	death count (since there was a significant increase in number of cases of TB). However, surprisingly, that it not the case. This
 	leads to the possible conclusion that medical care has improved in countries belonging to South East Asia because of which although 
 	there was both an increase in population as well as an increase in number of cases over the years, deaths due to the disease have been 
 	prevented.
-	  </p>
-	  <p style="font-size:130%;"> Since there is an increase in number of incident cases in South East Asia and Africa one might assume 
+ </p>
+<p style="font-size:130%;"> Since there is an increase in number of incident cases in South East Asia and Africa one might assume 
 	that it would lead to an increase in deaths due to TB too. To see if that is indeed the case, <a style="color:blue;" href="death.html">Click Here</a> 
 </body>
 	  
