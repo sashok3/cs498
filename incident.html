@@ -31,20 +31,43 @@ ul li{
     fill: #ffab00;
     stroke: #fff;
 }
+ul {
+  list-style: none;
+}
+li {
+  background: slategrey;
+  display: inline-block;
+  /* inline block hack for IE 6&7 */
+  zoom: 1;
+  *display: inline;
+  padding: 4px;
+  color: white
+  }
+  a:link {
+    color: white;
+  }
+   a:visited {
+    color: black;
+  }
+   a:hover {
+    font-weight: bold;
+  }
 
 </style>
 <body>
  
 <!-- load the d3.js library -->	
 <script src="https://d3js.org/d3.v3.min.js"></script>
+<h1> Tuberculosis burden by region </h1>
+<h2> Number of incident cases reported  per region over the years (1990-2013) </h2>
 <ul>
-<li><a href="index.html">Prev</a></li>
-<li><a href="population.html">Slide 1</a></li>
-<li><a href="incident.html">Slide 2</a></li>
-<li><a href="death.html">Slide 3</a></li>
-<li><a href="population.html">Next</a></li>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="population.html">Previous</a></li>
+  <li><a href="population.html">Slide 1</a></li>
+  <li><a href="incident.html">Slide 2</a></li>
+  <li><a href="death.html">Slide 3</a></li>
+  <li><a href="death.html">Next</a></li>
 </ul>
-<h2> Incident TB cases reported over the years (1990-2013) </h2>
 <script>
  
 // Set the dimensions of the canvas / graph
