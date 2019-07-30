@@ -288,7 +288,7 @@ function handleMouseOver(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Death_Count_Europe) - 30; }
+                y: function() { return y(d.Death_Count_Europe) - 20; }
             })
             .text(function() {
               return "Count: " + comma(d.Death_Count_Europe);  // Value of the text
@@ -313,7 +313,7 @@ function handleMouseOver2(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text2",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Death_Count_WP) - 30; }
+                y: function() { return y(d.Death_Count_WP) - 20; }
             })
             .text(function() {
               return "Count: " + comma(d.Death_Count_WP);  // Value of the text
