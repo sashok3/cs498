@@ -282,7 +282,7 @@ function handleMouseOver(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Pop_Europe) - 30; }
+                y: function() { return y(d.Pop_Europe) - 15; }
             })
             .text(function() {
               return "Popl: " + comma(d.Pop_Europe);  // Value of the text
@@ -307,7 +307,7 @@ function handleMouseOver2(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text2",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Pop_WP) - 30; }
+                y: function() { return y(d.Pop_WP) - 20; }
             })
             .text(function() {
               return "Popl: " + comma(d.Pop_WP);  // Value of the text
@@ -333,7 +333,7 @@ function handleMouseOver3(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text3",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Pop_SEA) - 20; }
+                y: function() { return y(d.Pop_SEA) - 10; }
             })
             .text(function() {
               return "Popl: " + comma(d.Pop_SEA);  // Value of the text
@@ -359,7 +359,7 @@ function handleMouseOver4(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text4",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Pop_EM) - 20; }
+                y: function() { return y(d.Pop_EM) + 30; }
             })
             .text(function() {
               return "Popl: " + comma(d.Pop_EM);  // Value of the text
@@ -386,7 +386,7 @@ function handleMouseOver5(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text5",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Pop_Americas) + 20; }
+                y: function() { return y(d.Pop_Americas) - 50; }
             })
             .text(function() {
               return "Popl: " + comma(d.Pop_Americas);  // Value of the text
@@ -413,7 +413,7 @@ function handleMouseOver6(d, i) {  // Add interactivity
             svg.append("text").attr({
                id: "Text5",  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return x(d.Year) - 60; },
-                y: function() { return y(d.Pop_Africa) - 15; }
+                y: function() { return y(d.Pop_Africa) + 10; }
             })
             .text(function() {
               return "Popl: " + comma(d.Pop_Africa);  // Value of the text
